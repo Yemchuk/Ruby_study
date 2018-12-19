@@ -27,12 +27,11 @@ post '/visit' do
     :phone => 'Введите телефон', 
     :date_time => 'Введите дату и время'}
 
-  hh.each do |key, value|
-    if params[key] == ''
-      @error = hh[key]
+    @error = hh.select {|key,_| params[key] == ''}.values.join(', ')
+
+    if @error != ''
       return erb :visit
     end
-  end
 
   @title = "Thank you!"
   @message = "Уважаемый #{@user_name}, мы ждём вас #{@date_time} у выбранного парикмахера #{@barber}. Ваш цвет #{@color}"
