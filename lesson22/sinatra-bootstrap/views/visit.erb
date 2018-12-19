@@ -1,0 +1,28 @@
+<h2>Записаться</h2>
+<p>На этой странице Вы сможете записаться к нам в Barber Shop</p>
+
+
+<form action="/visit" method="POST">
+  	<div class="form-group">
+	    <label>Ваше имя</label>
+	    <input type="text" class="form-control" placeholder="Введите Ваше имя" name="user_name">
+	  	<label>Ваш телефон</label>
+	    <input type="text" class="form-control" placeholder="Ваш телефон" name="phone">
+	    <label>Дата</label>
+	    <input type="text" class="form-control" placeholder="Дата" name="date_time">
+	    <label>Парикхмахер</label>
+		<div class="input-group">
+			<select class="custom-select" id="inputGroupSelect04" aria-label="Example select with button addon" name="baber">
+				<option selected>Choose...</option>
+				<option value="Walter White">Walter White</option>
+				<option value="Jessie Pinkman">Jessie Pinkman</option>
+				<option value="Gus Fring">Gus Fring</option>
+			</select>
+		</div>
+	</div>
+	<button type="submit" class="btn btn-primary">Записаться</button>
+</form>
+
+<h2><%= @title %></h2>
+<p><%= @message %></p>
+

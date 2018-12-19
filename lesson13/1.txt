@@ -1,0 +1,17 @@
+==================================
+Name: Mike, age: 65
+Name: Gus, age: 50
+Name: Linda, age: 42
+Name: Walt, age: 50
+Name: Jessie, age: 25
+Name: Oleg, age: 32
+==================================
+==================================
+Name: Mike, age: 65
+Name: Gus, age: 50
+Name: Linda, age: 42
+Name: Yarosla, age: 8
+Name: Walt, age: 50
+Name: Jessie, age: 25
+Name: Oleg, age: 32
+==================================
