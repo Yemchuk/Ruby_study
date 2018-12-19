@@ -1,2 +1,2 @@
-# Ruby_study
+# Ruby study
 my study Ruby
