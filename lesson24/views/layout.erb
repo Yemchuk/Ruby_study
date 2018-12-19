@@ -35,7 +35,7 @@
 							<a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
 						</li>
 						<li><a class="nav-link" href="/about">About</a></li>
-						<li><a class="nav-link" href="/visit">Visit</a></li>
+						<li><a class="nav-link" href="/visit">Записаться</a></li>
 						<!-- <li><a class="nav-link" href="/sonething">Something</a></li> -->
 						<li><a class="nav-link" href="/contacts">Contacts</a></li>
 						<li class="nav-item dropdown">
@@ -54,7 +54,7 @@
 
 			<div>
 				<%if @error then %>
-						<div class="alert alert-error"><%=@error%></div>
+						<div class="alert alert-danger"><%=@error%></div>
 				<% end %>
 				<%= yield %>
 			</div>

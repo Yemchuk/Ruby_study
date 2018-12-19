@@ -3,6 +3,7 @@ require 'sinatra'
 require 'sinatra/reloader'
 
 get '/about' do 
+  @error = 'something wrong!'
   erb :about
 end
 
@@ -21,6 +22,11 @@ post '/visit' do
   @date_time = params[:date_time]
   @barber = params[:barber]
   @color = params[:color]
+
+  if @user_name == ''
+    @error = 'Введите имя'
+    return erb :visit
+  end
 
   @title = "Thank you!"
   @message = "Уважаемый #{@user_name}, мы ждём вас #{@date_time} у выбранного парикмахера #{@barber}. Ваш цвет #{@color}"
@@ -66,8 +72,6 @@ get '/' do
   erb 'Can you handle a <a href="/secure/place">secret</a>?'
 end
 
-
-
 get '/login/form' do
   erb :login_form
 end
@@ -98,4 +102,3 @@ end
 get '/secure/place' do
   erb 'This is a secret place that only <%=session[:identity]%> has access to!'
 end
-
