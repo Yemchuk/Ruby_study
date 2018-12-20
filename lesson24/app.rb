@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'sinatra'
 require 'sinatra/reloader'
+require 'pony'
 
 get '/about' do 
   @error = 'something wrong!'
@@ -48,9 +49,37 @@ post '/contacts' do
   @email = params[:email]
   @message = params[:message]
 
-  f = File.open './public/contacts.txt', 'a'
-  f.write "Email: #{@email}, Message: #{@message}\n"
-  f.close
+  hh = {:email => 'Введите адрес почты', :message => 'Введите сообщение'}
+
+   @error = hh.select {|key,_| params[key] == ''}.values.join(', ')
+
+    if @error != ''
+      return erb :contacts
+    end
+  #Запись в файл
+  # f = File.open './public/contacts.txt', 'a'
+  # f.write "Email: #{@email}, Message: #{@message}\n"
+  # f.close
+
+  #Отправка на мыло
+  Pony.mail(
+    :mail => 'dellvesna@gmail.com',
+    :to => params[:email],
+    :subject => "Test",
+    :body => params[:message],
+    :port => '587',
+    :via => :smtp,
+    :via_options => { 
+      :address              => 'smtp.gmail.com', 
+      :port                 => '587', 
+      :enable_starttls_auto => true, 
+      :user_name            => 'dellvesna', 
+      :password             => 'zO51Nc6Y', 
+      :authentication       => :plain, 
+      :domain               => 'localhost.localdomain'
+    })
+
+
 
   erb :contacts
 end
